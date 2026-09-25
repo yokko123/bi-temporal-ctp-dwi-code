@@ -87,6 +87,16 @@ held-out local test set (n=33) it reached Dice 0.71 +/- 0.24 (penumbra) and
 
 Needs `nnunetv2`, `torch` and `blosc2`.
 
+## Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+FE1 and FE2 are CPU only. FE3 and FE4 need a GPU plus PyTorch and nnU-Net
+respectively, so install only the subset you intend to run; the file is grouped
+by feature family.
+
 ## Paths
 
 Every script reads its roots from environment variables with `/path/to/...`

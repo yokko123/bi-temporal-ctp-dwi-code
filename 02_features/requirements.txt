@@ -1,0 +1,29 @@
+# Stage 02 - feature extraction.
+# FE1 and FE2 are CPU only; FE3 and FE4 need a GPU and their own frameworks,
+# so install the subset you actually intend to run.
+
+# --- shared ---
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+SimpleITK>=2.2
+nibabel>=5.0
+tqdm>=4.65
+matplotlib>=3.7
+
+# --- FE2, GLCM radiomics ---
+pyradiomics>=3.1
+
+# --- FE3, mJ-Net (PyTorch) ---
+torch>=2.0
+torchvision>=0.15
+h5py>=3.8
+opencv-python>=4.7
+scikit-image>=0.20
+seaborn>=0.12
+optuna>=3.2            # only for optuna_search.py
+
+# --- FE4, nnU-Net ---
+nnunetv2>=2.2
+dynamic-network-architectures>=0.3
+blosc2>=2.0

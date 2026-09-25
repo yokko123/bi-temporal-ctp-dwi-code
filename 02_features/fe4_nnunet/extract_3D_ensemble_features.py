@@ -48,7 +48,6 @@ DATASET_JSON = os.path.join(DATASET_ROOT, "nnUNet_raw", DATASET_NAME, "dataset.j
 SPLITS_PATH  = os.path.join(DATASET_ROOT, "nnUNet_preprocessed", DATASET_NAME, "splits_final.json")
 
 OUT_DIR = os.path.join(os.environ.get("FEATURE_WORK_ROOT", "/path/to/feature-work"), "nnUnet_features_extraction", "features_3d_109")
-os.makedirs(OUT_DIR, exist_ok=True)
 
 INPUT_CHANNELS = 40
 NUM_CLASSES    = 4
@@ -529,6 +528,7 @@ def main():
                          "fold's val split, fall back to the full ensemble (and warn) "
                          "instead of skipping.")
     args = ap.parse_args()
+    os.makedirs(OUT_DIR, exist_ok=True)
 
     device = torch.device(args.device if (args.device == "cpu" or torch.cuda.is_available()) else "cpu")
     print(f"Using device: {device}")

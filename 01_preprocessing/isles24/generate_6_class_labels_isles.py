@@ -135,56 +135,61 @@ def generate_outcome_map_isles(ctp_path, clb_path, dwi_path, output_path, kernel
 # --------------------------------------------------
 # Path configuration
 # --------------------------------------------------
-ISLES_BASE = os.environ.get("ISLES24_WORK_ROOT", "/path/to/isles24-work")
-ctp_dir = os.path.join(ISLES_BASE, "ISLES_filtered_ctp_labels_in_ncct")
-clb_dir = os.path.join(ISLES_BASE, "CLB_filtered_segmentation")
-dwi_dir = os.path.join(ISLES_BASE, "dwi_labels")
-out_dir = os.path.join(ISLES_BASE, "6_Class_Labels")
+def main():
+    ISLES_BASE = os.environ.get("ISLES24_WORK_ROOT", "/path/to/isles24-work")
+    ctp_dir = os.path.join(ISLES_BASE, "ISLES_filtered_ctp_labels_in_ncct")
+    clb_dir = os.path.join(ISLES_BASE, "CLB_filtered_segmentation")
+    dwi_dir = os.path.join(ISLES_BASE, "dwi_labels")
+    out_dir = os.path.join(ISLES_BASE, "6_Class_Labels")
 
-os.makedirs(out_dir, exist_ok=True)
+    os.makedirs(out_dir, exist_ok=True)
 
-# Find CTP files
-ctp_files = sorted(glob.glob(os.path.join(ctp_dir, "filtered_case_*_safe.nii.gz")))
-print(f"Found {len(ctp_files)} ISLES CTP label files.")
+    # Find CTP files
+    ctp_files = sorted(glob.glob(os.path.join(ctp_dir, "filtered_case_*_safe.nii.gz")))
+    print(f"Found {len(ctp_files)} ISLES CTP label files.")
 
-written, skipped, failed = [], [], []
+    written, skipped, failed = [], [], []
 
-for ctp_file in ctp_files:
-    fname = os.path.basename(ctp_file)
+    for ctp_file in ctp_files:
+        fname = os.path.basename(ctp_file)
 
-    # Parse 4-digit case ID: 'filtered_case_0001_safe.nii.gz' -> '0001'
-    m = re.fullmatch(r"filtered_case_(\d+)_safe\.nii\.gz", fname)
-    if not m:
-        print(f"⚠️ Skip (cannot parse): {fname}")
-        skipped.append(fname)
-        continue
-    case_num = m.group(1)
-    pid = f"sub-stroke{case_num}"
+        # Parse 4-digit case ID: 'filtered_case_0001_safe.nii.gz' -> '0001'
+        m = re.fullmatch(r"filtered_case_(\d+)_safe\.nii\.gz", fname)
+        if not m:
+            print(f"⚠️ Skip (cannot parse): {fname}")
+            skipped.append(fname)
+            continue
+        case_num = m.group(1)
+        pid = f"sub-stroke{case_num}"
 
-    clb_path  = os.path.join(clb_dir,
-                             f"filtered_{pid}_ses-02_space-ncct_dwi_synthseg.nii.gz")
-    dwi_path  = os.path.join(dwi_dir,
-                             f"{pid}_ses-02_space-ncct_lesion-msk.nii.gz")
-    save_path = os.path.join(out_dir, f"{pid}_6class_map.nii.gz")
+        clb_path  = os.path.join(clb_dir,
+                                 f"filtered_{pid}_ses-02_space-ncct_dwi_synthseg.nii.gz")
+        dwi_path  = os.path.join(dwi_dir,
+                                 f"{pid}_ses-02_space-ncct_lesion-msk.nii.gz")
+        save_path = os.path.join(out_dir, f"{pid}_6class_map.nii.gz")
 
-    missing = []
-    if not os.path.exists(clb_path): missing.append(f"CLB -> {clb_path}")
-    if not os.path.exists(dwi_path): missing.append(f"DWI -> {dwi_path}")
-    if missing:
-        print(f"⚠️ Skip {pid}: missing " + "; ".join(missing))
-        skipped.append(pid)
-        continue
+        missing = []
+        if not os.path.exists(clb_path): missing.append(f"CLB -> {clb_path}")
+        if not os.path.exists(dwi_path): missing.append(f"DWI -> {dwi_path}")
+        if missing:
+            print(f"⚠️ Skip {pid}: missing " + "; ".join(missing))
+            skipped.append(pid)
+            continue
 
-    try:
-        generate_outcome_map_isles(ctp_file, clb_path, dwi_path, save_path)
-        print(f"✅ {pid}")
-        written.append(pid)
-    except Exception as e:
-        print(f"❌ {pid}: {e}")
-        failed.append((pid, str(e)))
+        try:
+            generate_outcome_map_isles(ctp_file, clb_path, dwi_path, save_path)
+            print(f"✅ {pid}")
+            written.append(pid)
+        except Exception as e:
+            print(f"❌ {pid}: {e}")
+            failed.append((pid, str(e)))
 
-print(f"\nDone. written={len(written)}  skipped={len(skipped)}  failed={len(failed)}")
-if failed:
-    print("\nFailed:")
-    for pid, msg in failed:
-        print(f"  {pid}: {msg}")
+    print(f"\nDone. written={len(written)}  skipped={len(skipped)}  failed={len(failed)}")
+    if failed:
+        print("\nFailed:")
+        for pid, msg in failed:
+            print(f"  {pid}: {msg}")
+
+
+if __name__ == "__main__":
+    main()

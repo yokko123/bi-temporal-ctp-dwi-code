@@ -1,0 +1,5 @@
+# Only the stage-03 statistics suite is a real test suite. The stage-01 and
+# stage-02 directories hold pipeline scripts, some named test_*.py for
+# historical reasons, which pytest would otherwise try to import and collect.
+[tool.pytest.ini_options]
+testpaths = ["tests"]
