@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: If you use this code, please cite the paper.
+title: Bi-temporal Image-driven Acute Stroke Evolution Analysis
+abstract: >-
+  A bi-temporal tissue phenotyping framework linking admission CT perfusion
+  signatures to follow-up DWI-defined tissue outcome through six outcome-aware
+  region-of-interest classes, with statistical, radiomic and deep-learning
+  feature families.
+authors:
+  - family-names: Rahman
+    given-names: Md Sazidur
+    affiliation: University of Stavanger
+  - family-names: Engan
+    given-names: Kjersti
+    affiliation: University of Stavanger
+  - family-names: Dæhli Kurz
+    given-names: Kathinka
+    affiliation: Stavanger University Hospital
+  - family-names: Khanmohammadi
+    given-names: Mahdieh
+    affiliation: University of Stavanger
+keywords:
+  - perfusion imaging
+  - CT perfusion
+  - diffusion MRI
+  - radiomics
+  - CNN embeddings
+  - ischemic stroke
+license: MIT

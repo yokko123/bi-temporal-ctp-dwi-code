@@ -1,0 +1,43 @@
+# Paths to the feature tables written by stage 02 (02_features/).
+# Copy to config.yaml and fill in. Nothing here ships with the repository:
+# the local cohort is private hospital data and ISLES'24 must be obtained from
+# https://isles-24.grand-challenge.org/ .
+
+out_dir: results
+
+features:
+  # FE1 - baseline first-order statistics, patient level (already max-pooled).
+  fe1:
+    sus:    {path: /path/to/baseline/aggregations_csv/patient_max.csv,       level: patient}
+    isles:  {path: /path/to/baseline/aggregations_csv_isles/patient_max.csv, level: patient}
+
+  # FE2 - GLCM radiomics. The SUS table is patient level; the ISLES table is
+  # slice level and is max-pooled to patient level by the run scripts.
+  fe2:
+    sus:    {path: /path/to/glcm/glcm_patient_max_with_clinical.csv, level: patient}
+    isles:  {path: /path/to/glcm/glcm_isles24.csv,                   level: slice}
+
+  # FE3 - mJ-Net encoder embeddings, slice level, columns feat_0..feat_255.
+  fe3:
+    sus:    {path: /path/to/mjnet/features_slice_level.csv,        level: slice, prefix: "feat_"}
+    isles:  {path: /path/to/mjnet/features_isles_slice_level.parquet, level: slice, prefix: "feat_"}
+
+  # FE4 - nnU-Net stage-3 encoder features, slice level. One column family per
+  # pooling operator: f0_mean.., f0_median.., f0_max.. Point `suffix` at the one
+  # you want; the paper reports _max.
+  fe4:
+    sus:    {path: /path/to/nnunet/slice_features_109patients_ncct.csv, level: slice, suffix: "_max"}
+    isles:  {path: /path/to/nnunet/slice_features_isles_ncct.csv,       level: slice, suffix: "_max"}
+
+# Table V strata (local cohort only).
+subgroups:
+  clinical_csv: /path/to/filtered_clinical_updated.csv   # needs patient_id, onset_to_ct_time
+  lesion_json:  /path/to/lesion.json                     # "01_001": "Left" | "Right" | ""
+
+# Benjamini-Hochberg family for the handcrafted families.
+#   per_pair   - across the features of one region pair   (published FE1 rows)
+#   per_family - across all region pairs x features       (published FE2 rows)
+# The published table is not internally consistent here.
+fdr_scope:
+  fe1: per_pair
+  fe2: per_family

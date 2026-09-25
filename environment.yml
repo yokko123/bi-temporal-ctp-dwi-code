@@ -1,0 +1,17 @@
+# Environment for the analysis stage (03_analysis) and the demo.
+# Stages 01 and 02 additionally need SimpleITK, PyRadiomics, PyTorch, nnU-Net v2,
+# SynthStrip and SynthSeg; see their READMEs.
+name: bitemporal
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy>=1.24
+  - pandas>=2.0
+  - scipy>=1.10
+  - scikit-learn>=1.3
+  - statsmodels>=0.14
+  - matplotlib>=3.7
+  - pyyaml>=6.0
+  - pyarrow>=12.0        # parquet feature tables
+  - pytest>=7.0

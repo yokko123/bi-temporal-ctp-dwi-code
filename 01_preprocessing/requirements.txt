@@ -1,0 +1,20 @@
+# Core
+numpy
+scipy
+pandas
+
+# Medical imaging
+SimpleITK
+itk
+pydicom
+nibabel
+
+# Visualization
+matplotlib
+tqdm
+
+# Connected component analysis
+connected-components-3d
+
+# Skull stripping (SynthStrip via FreeSurfer — install separately)
+# freesurfer  # Not pip-installable; see README.md
