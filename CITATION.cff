@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: If you use this code, please cite the paper.
+message: If you use this work, please cite the paper.
 title: Bi-temporal Image-driven Acute Stroke Evolution Analysis
 abstract: >-
   A bi-temporal tissue phenotyping framework linking admission CT perfusion
@@ -27,3 +27,21 @@ keywords:
   - CNN embeddings
   - ischemic stroke
 license: MIT
+preferred-citation:
+  type: conference-paper
+  title: Bi-temporal Image-driven Acute Stroke Evolution Analysis
+  authors:
+    - family-names: Rahman
+      given-names: Md Sazidur
+    - family-names: Engan
+      given-names: Kjersti
+    - family-names: Dæhli Kurz
+      given-names: Kathinka
+    - family-names: Khanmohammadi
+      given-names: Mahdieh
+  collection-title: >-
+    2026 IEEE-EMBS International Conference on Biomedical and Health
+    Informatics (BHI)
+  year: 2026
+  # Add doi: and start/end page numbers once the paper is on IEEE Xplore.
+  notes: In press

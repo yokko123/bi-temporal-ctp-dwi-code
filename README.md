@@ -1,6 +1,6 @@
 # Bi-temporal Image-driven Acute Stroke Evolution Analysis — code
 
-Implementation for the IEEE BHI 2026 submission
+Implementation for
 
 > **Bi-temporal Image-driven Acute Stroke Evolution Analysis**
 > Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi
@@ -8,7 +8,8 @@ Implementation for the IEEE BHI 2026 submission
 
 **Project page:** https://github.com/yokko123/bi-temporal-ctp-dwi
 
-> ⚠️ The paper is under review; this repository is private until publication.
+**Accepted at IEEE BHI 2026.** Not yet on IEEE Xplore; the DOI will be added
+to `CITATION.cff` once it is.
 
 ## What it does
 
@@ -133,6 +134,21 @@ The four region-pair tests, in paper order:
 
 Every test is patient level: slice descriptors are max-pooled to
 (patient x region) before anything is tested.
+
+## Citing
+
+See [`CITATION.cff`](CITATION.cff), or:
+
+```bibtex
+@inproceedings{rahman2026bitemporal,
+  title     = {Bi-temporal Image-driven Acute Stroke Evolution Analysis},
+  author    = {Rahman, Md Sazidur and Engan, Kjersti and
+               D{\ae}hli Kurz, Kathinka and Khanmohammadi, Mahdieh},
+  booktitle = {2026 IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI)},
+  year      = {2026},
+  note      = {In press}
+}
+```
 
 ## License
 
