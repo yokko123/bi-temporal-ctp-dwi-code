@@ -1,0 +1,37 @@
+# Published model weights, pinned by revision.
+#
+# `revision` is a Hugging Face commit sha, not a branch. Pinning it means a
+# download today and a download in two years give byte-identical weights, even
+# if the repo gains a new release. Bump it deliberately, never to "main".
+#
+#   python download_weights.py              # everything below
+#   python download_weights.py --model fe4_nnunet --dest /path/to/nnUNet_results
+
+models:
+
+  fe4_nnunet:
+    repo_id: yokko123/ctp-core-penumbra-nnunet
+    revision: 99efa7231bf302d223c318ee6cde2aa07471e88b
+    repo_type: model
+    description: >-
+      3D nnU-Net, 5-fold ensemble, core/penumbra segmentation from 40-channel
+      admission CTP. Trained on Dataset1152_SUS_CTP_Reg_3DT.
+    # Where the files land. nnU-Net expects this to be $nnUNet_results, with the
+    # dataset/trainer directories directly underneath.
+    dest_env: nnUNet_results
+    dest_default: ./weights/nnUNet_results
+    # Guards against a silently truncated or partial download.
+    expect_files:
+      Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_0/checkpoint_final.pth: 357035375
+      Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_1/checkpoint_final.pth: 357135599
+      Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_2/checkpoint_final.pth: 357085103
+      Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_3/checkpoint_final.pth: 356950959
+      Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_4/checkpoint_final.pth: 356947631
+      Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/plans.json: 25678
+      Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/dataset.json: 1570
+
+  # FE3 mJ-Net weights are not published yet. When they are, add them here with
+  # their own pinned revision.
+  # fe3_mjnet:
+  #   repo_id: yokko123/ctp-core-penumbra-mjnet
+  #   revision: ...
