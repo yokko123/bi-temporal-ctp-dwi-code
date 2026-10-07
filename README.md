@@ -119,7 +119,6 @@ else's filesystem.
 | `MJNET_CHECKPOINT_DIR` | trained mJ-Net cross-validation checkpoints |
 | `MJNET_LOG_DIR` | SLURM log directory (must contain no spaces) |
 | `FEATURE_WORK_ROOT` | where stage 02 writes its feature tables |
-| `PREPROC_REPO_ROOT` | checkout of the standalone preprocessing repository |
 | `CONDA_PREFIX_ROOT` | conda installation, for the SLURM scripts |
 | `USER_WORK_ROOT` | generic fallback work directory |
 
@@ -166,7 +165,7 @@ ran:
 @inproceedings{rahman2026bitemporal,
   title     = {Bi-temporal Image-driven Acute Stroke Evolution Analysis},
   author    = {Rahman, Md Sazidur and Engan, Kjersti and
-               D{\ae}hli Kurz, Kathinka and Khanmohammadi, Mahdieh},
+               Kurz, Kathinka D{\ae}hli and Khanmohammadi, Mahdieh},
   booktitle = {2026 IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI)},
   year      = {2026},
   note      = {In press}
@@ -175,7 +174,7 @@ ran:
 @software{rahman2026bitemporal_code,
   title     = {Bi-temporal Image-driven Acute Stroke Evolution Analysis},
   author    = {Rahman, Md Sazidur and Engan, Kjersti and
-               D{\ae}hli Kurz, Kathinka and Khanmohammadi, Mahdieh},
+               Kurz, Kathinka D{\ae}hli and Khanmohammadi, Mahdieh},
   year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.23209370},

@@ -16,6 +16,7 @@ voxel index = patient's RIGHT, but the script generalises in case any future
 case is flipped.
 """
 
+import argparse
 import os
 import re
 import glob
@@ -26,8 +27,11 @@ import numpy as np
 import SimpleITK as sitk
 
 
-LABEL_DIR = os.path.join(os.environ.get("ISLES24_WORK_ROOT", "/path/to/isles24-work"), "5_Class_Labels")
-OUT_JSON  = os.path.join(os.environ.get("PREPROC_REPO_ROOT", "/path/to/preprocessing"), "scripts", "CLB_filtering", "lesion_isles.json")
+DEFAULT_LABEL_DIR = os.path.join(
+    os.environ.get("ISLES24_WORK_ROOT", "/path/to/isles24-work"), "5_Class_Labels")
+#: Written next to this script by default. p03_clb_filtering.py reads it, and it
+#: is the ISLES counterpart of the SUS lesion.json.
+DEFAULT_OUT_JSON = str(Path(__file__).resolve().parent / "lesion_isles.json")
 
 # Classification thresholds
 UNILATERAL_FRACTION = 0.90  # >= 90% on one side  -> unilateral
@@ -101,6 +105,14 @@ def classify_one(label_path):
 
 
 def main():
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--label-dir", default=DEFAULT_LABEL_DIR,
+                    help="directory of <pid>_5class_map.nii.gz (default: $ISLES24_WORK_ROOT/5_Class_Labels)")
+    ap.add_argument("--out", default=DEFAULT_OUT_JSON,
+                    help="where to write lesion_isles.json (default: next to this script)")
+    args = ap.parse_args()
+    LABEL_DIR, OUT_JSON = args.label_dir, args.out
+
     files = sorted(glob.glob(os.path.join(LABEL_DIR, "sub-stroke*_5class_map.nii.gz")))
     print(f"Found {len(files)} ISLES 5-class label files.\n")
 
