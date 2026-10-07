@@ -11,7 +11,7 @@ models:
 
   fe4_nnunet:
     repo_id: yokko123/ctp-core-penumbra-nnunet
-    revision: 99efa7231bf302d223c318ee6cde2aa07471e88b
+    revision: dbd2364cc18c7e820d666a5db5b0bc09586086b2
     repo_type: model
     description: >-
       3D nnU-Net, 5-fold ensemble, core/penumbra segmentation from 40-channel
@@ -22,6 +22,7 @@ models:
     dest_default: ./weights/nnUNet_results
     # Guards against a silently truncated or partial download.
     expect_files:
+      config.json: 1225
       Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_0/checkpoint_final.pth: 357035375
       Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_1/checkpoint_final.pth: 357135599
       Dataset1152_SUS_CTP_Reg_3DT/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_2/checkpoint_final.pth: 357085103
