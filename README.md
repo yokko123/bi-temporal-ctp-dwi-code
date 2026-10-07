@@ -95,9 +95,6 @@ else's filesystem.
 |---|---|
 | `SUS_DICOM_ROOT` | raw SUH DICOM |
 | `SUS_CTP_GT_ROOT` | expert core / penumbra annotations (T1) |
-
-The `SUS_` prefix and the `sus` cohort key are the hospital's Norwegian
-abbreviation (Stavanger Universitetssjukehus); they denote the SUH cohort.
 | `SUS_DWI_GT_ROOT` | expert final-infarct annotations (T2) |
 | `SUS_CTP_NATIVE_MASKS` | CTP brain masks in native space |
 | `SUS_CTP_PARAM_MAPS` | CTP-derived parametric maps (CBF, CBV, Tmax) |
@@ -114,6 +111,9 @@ abbreviation (Stavanger Universitetssjukehus); they denote the SUH cohort.
 | `PREPROC_REPO_ROOT` | checkout of the standalone preprocessing repository |
 | `CONDA_PREFIX_ROOT` | conda installation, for the SLURM scripts |
 | `USER_WORK_ROOT` | generic fallback work directory |
+
+The `SUS_` prefix and the `sus` cohort key are the hospital's Norwegian
+abbreviation (Stavanger Universitetssjukehus); they denote the SUH cohort.
 
 Most scripts also accept the same values as command-line arguments, which take
 precedence over the environment.
