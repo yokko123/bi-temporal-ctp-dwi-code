@@ -1,4 +1,25 @@
-# Bi-temporal Image-driven Acute Stroke Evolution Analysis — code
+<h1 align="center">Bi-temporal Image-driven<br>Acute Stroke Evolution Analysis</h1>
+
+<p align="center">
+  <a href="https://yokko123.github.io/bi-temporal-ctp-dwi/"><img alt="Project page" src="https://img.shields.io/badge/project%20page-live-0c6e7b"></a>
+  <a href="https://doi.org/10.5281/zenodo.23209370"><img alt="DOI" src="https://zenodo.org/badge/1387177478.svg"></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-555555"></a>
+</p>
+
+<p align="center">
+  <b>Md Sazidur Rahman</b> &nbsp;&middot;&nbsp;
+  <b>Kjersti Engan</b> &nbsp;&middot;&nbsp;
+  <b>Kathinka D&aelig;hli Kurz</b> &nbsp;&middot;&nbsp;
+  <b>Mahdieh Khanmohammadi</b>
+</p>
+
+<p align="center">
+  <sub>University of Stavanger &nbsp;&middot;&nbsp; Stavanger University Hospital</sub>
+</p>
+
+<p align="center">
+  <sub>Official implementation &nbsp;&middot;&nbsp; <b>accepted at IEEE BHI 2026</b></sub>
+</p>
 
 <p align="center">
   <img src="assets/bitemporal_roi.gif" width="100%"
@@ -12,22 +33,6 @@ T<sub>2</sub>, overlaid with the six outcome-aware ROI classes. The CTP slab is
 shorter than the NCCT and DWI field of view, so the sweep is limited to the
 slices CTP actually covers.
 </sub></p>
-
-Implementation for
-
-> **Bi-temporal Image-driven Acute Stroke Evolution Analysis**
-> Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi
-> University of Stavanger · Stavanger University Hospital
-
-[![Project page](https://img.shields.io/badge/project%20page-yokko123.github.io-555555)](https://yokko123.github.io/bi-temporal-ctp-dwi/)
-[![DOI](https://zenodo.org/badge/1387177478.svg)](https://doi.org/10.5281/zenodo.23209370)
-[![License: MIT](https://img.shields.io/badge/license-MIT-555555)](LICENSE)
-
-**Project page:** https://yokko123.github.io/bi-temporal-ctp-dwi/
-
-**Accepted at IEEE BHI 2026.** Not yet on IEEE Xplore; the paper DOI goes into
-`CITATION.cff` once it is. The code itself is archived on Zenodo:
-[10.5281/zenodo.23209370](https://doi.org/10.5281/zenodo.23209370).
 
 ## What it does
 
@@ -160,8 +165,10 @@ Every test is patient level: slice descriptors are max-pooled to
 
 ## Citing
 
-Cite the **paper** for the method and results, and the **Zenodo DOI** if you
-need to pin the exact code you ran. See [`CITATION.cff`](CITATION.cff), or:
+The paper is accepted at IEEE BHI 2026 but not yet on IEEE Xplore; its DOI goes
+into [`CITATION.cff`](CITATION.cff) once it is. Cite the **paper** for the
+method and results, and the **Zenodo DOI** if you need to pin the exact code you
+ran:
 
 ```bibtex
 @inproceedings{rahman2026bitemporal,
