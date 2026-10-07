@@ -43,9 +43,24 @@ def cell_box(z):
     return CX0 + CPX * col, y0, y1
 
 
-def cell(montage, z, half_width=150):
+HALF_W = 150
+
+
+def pad(montage):
+    """Pad left/right so a column-0 tile does not index past the array start.
+
+    The tile window is centred on cx, and cx for column 0 is 130, so cx-150 is
+    negative; numpy reads that as an offset from the right edge and returns an
+    empty slice, which rendered as a black frame.
+    """
+    return np.pad(montage, ((0, 0), (HALF_W, HALF_W), (0, 0)))
+
+
+def cell(montage, z):
+    """Tile for slice z out of an already-padded montage."""
     cx, y0, y1 = cell_box(z)
-    return montage[y0:y1, int(cx - half_width):int(cx + half_width)]
+    x0 = int(cx) + HALF_W - HALF_W
+    return montage[y0:y1, x0:x0 + 2 * HALF_W]
 
 
 def grey_fraction(montage, z):
@@ -68,7 +83,7 @@ def load_font(size):
 def build(case_dir, out_path, scale, duration, min_coverage, palette_size):
     case_dir = pathlib.Path(case_dir)
     stem = case_dir.name
-    montage = {m: np.asarray(Image.open(case_dir / f"{stem}_6class_{m}.png").convert("RGB"))
+    montage = {m: pad(np.asarray(Image.open(case_dir / f"{stem}_6class_{m}.png").convert("RGB")))
                for m in MODALITIES}
 
     slices = [z for z in range(N_COLS * 6)
@@ -90,14 +105,14 @@ def build(case_dir, out_path, scale, duration, min_coverage, palette_size):
             right = xs.max() if right is None else max(right, xs.max())
             top = ys.min() if top is None else min(top, ys.min())
             bottom = ys.max() if bottom is None else max(bottom, ys.max())
-    pad = 6
-    left, top = max(0, left - pad), max(0, top - pad)
-    right, bottom = right + pad, bottom + pad
+    bbox_pad = 6
+    left, top = max(0, left - bbox_pad), max(0, top - bbox_pad)
+    right, bottom = right + bbox_pad, bottom + bbox_pad
 
     def tile(m, z):
         return Image.fromarray(cell(m, z)[top:bottom + 1, left:right + 1])
 
-    legend_strip = montage["ncct"][LEGEND_Y[0]:LEGEND_Y[1]]
+    legend_strip = montage["ncct"][LEGEND_Y[0]:LEGEND_Y[1], HALF_W:-HALF_W]
     xs = np.where((legend_strip.sum(2) > 24).any(0))[0]
     legend = Image.fromarray(legend_strip[:, max(0, xs.min() - 10):xs.max() + 11])
 
@@ -123,8 +138,7 @@ def build(case_dir, out_path, scale, duration, min_coverage, palette_size):
         img.paste(legend, ((width - legend.width) // 2, margin + title_h + ph + 10))
         return img
 
-    order = list(range(z0, z1 + 1)) + list(range(z1 - 1, z0, -1))   # sweep and return
-    frames = [frame(z) for z in order]
+    frames = [frame(z) for z in range(z0, z1 + 1)]
 
     sample = Image.new("RGB", (width, height * 4))
     for i, f in enumerate(frames[::max(1, len(frames) // 4)][:4]):
@@ -140,7 +154,7 @@ def build(case_dir, out_path, scale, duration, min_coverage, palette_size):
     out_path = pathlib.Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     quantised[0].save(out_path, save_all=True, append_images=quantised[1:],
-                      duration=duration, loop=0, optimize=True, disposal=2)
+                      duration=duration, loop=0, optimize=True, disposal=1)
     print(f"  wrote {out_path}  {len(frames)} frames, {width}x{height}, "
           f"{out_path.stat().st_size / 1e6:.2f} MB")
 

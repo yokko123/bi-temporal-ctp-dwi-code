@@ -6,10 +6,11 @@
 </p>
 
 <p align="center"><sub>
-One case, swept through the axial slices where all three modalities overlap:
-admission NCCT and CTP at T<sub>1</sub>, follow-up DWI at T<sub>2</sub>, overlaid
-with the six outcome-aware ROI classes. The CTP slab is shorter than the NCCT and
-DWI field of view, so the sweep is limited to the slices CTP actually covers.
+One case, swept head-to-foot through the axial slices where all three modalities
+overlap: admission NCCT and CTP at T<sub>1</sub>, follow-up DWI at
+T<sub>2</sub>, overlaid with the six outcome-aware ROI classes. The CTP slab is
+shorter than the NCCT and DWI field of view, so the sweep is limited to the
+slices CTP actually covers.
 </sub></p>
 
 Implementation for
