@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://yokko123.github.io/bi-temporal-ctp-dwi/"><img alt="Project page" src="https://img.shields.io/badge/project%20page-live-0c6e7b"></a>
+  <a href="https://huggingface.co/yokko123/ctp-core-penumbra-nnunet"><img alt="Model on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-nnU--Net-FFD21E"></a>
   <a href="https://doi.org/10.5281/zenodo.23209370"><img alt="DOI" src="https://zenodo.org/badge/1387177478.svg"></a>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-555555"></a>
 </p>
@@ -43,6 +44,28 @@ against the fate it went on to have.
 demo/               synthetic cohort, so stage 03 is runnable without data
 tests/              unit tests for the statistics
 ```
+
+## Pretrained weights
+
+The nnU-Net core/penumbra segmenter (FE4) is on the Hugging Face Hub:
+
+[**yokko123/ctp-core-penumbra-nnunet**](https://huggingface.co/yokko123/ctp-core-penumbra-nnunet) — 3D nnU-Net, 5-fold ensemble, Dice 0.71 penumbra / 0.30 core on the held-out SUH test set.
+
+```bash
+hf download yokko123/ctp-core-penumbra-nnunet --local-dir $nnUNet_results
+
+nnUNetv2_predict -d Dataset1152_SUS_CTP_Reg_3DT \
+  -i INPUT_FOLDER -o OUTPUT_FOLDER \
+  -f 0 1 2 3 4 -tr nnUNetTrainer -c 3d_fullres -p nnUNetPlans
+```
+
+The model card states the input contract, which matters: all 40 channels are
+`NoNormalization`, so the CTP must be preprocessed exactly as in stage 01.
+Point `NNUNET_DATASET_ROOT` at the same tree to run
+`02_features/fe4_nnunet/extract_3D_ensemble_features.py` for the 256-D encoder
+features instead of the segmentation.
+
+The mJ-Net weights (FE3) are not published yet.
 
 ## Install
 
