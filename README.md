@@ -26,14 +26,6 @@
        alt="Axial sweep through one case: admission NCCT, admission CTP and follow-up DWI side by side, overlaid with the six bi-temporal ROI classes.">
 </p>
 
-<p align="center"><sub>
-One case, swept head-to-foot through the axial slices where all three modalities
-overlap: admission NCCT and CTP at T<sub>1</sub>, follow-up DWI at
-T<sub>2</sub>, overlaid with the six outcome-aware ROI classes. The CTP slab is
-shorter than the NCCT and DWI field of view, so the sweep is limited to the
-slices CTP actually covers.
-</sub></p>
-
 ## What it does
 
 Admission CT perfusion (CTP) at T₁ is registered to follow-up DWI at T₂, and the
