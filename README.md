@@ -1,5 +1,17 @@
 # Bi-temporal Image-driven Acute Stroke Evolution Analysis — code
 
+<p align="center">
+  <img src="assets/bitemporal_roi.gif" width="100%"
+       alt="Axial sweep through one case: admission NCCT, admission CTP and follow-up DWI side by side, overlaid with the six bi-temporal ROI classes.">
+</p>
+
+<p align="center"><sub>
+One case, swept through the axial slices where all three modalities overlap:
+admission NCCT and CTP at T<sub>1</sub>, follow-up DWI at T<sub>2</sub>, overlaid
+with the six outcome-aware ROI classes. The CTP slab is shorter than the NCCT and
+DWI field of view, so the sweep is limited to the slices CTP actually covers.
+</sub></p>
+
 Implementation for
 
 > **Bi-temporal Image-driven Acute Stroke Evolution Analysis**
@@ -26,6 +38,7 @@ against the fate it went on to have.
 ```
 01_preprocessing/   DICOM -> NIfTI, CTP motion correction, CTP/DWI -> NCCT
                     registration, skull stripping, and the six ROI classes
+                    (analysis/make_roi_gif.py builds the animation above)
 02_features/        FE1 baseline statistics, FE2 GLCM radiomics,
                     FE3 mJ-Net embeddings, FE4 nnU-Net embeddings
 03_analysis/        region-pair tests, ablation, subgroups, figures
