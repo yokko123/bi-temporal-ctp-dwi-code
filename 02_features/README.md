@@ -18,7 +18,7 @@ Mean, standard deviation, skewness, kurtosis, minimum and maximum over a
 3 x 3 x 40 sliding window (stride 1) on the spatiotemporal CTP slice.
 
 ```bash
-python fe1_baseline/baseline_features_nifti.py       --help   # local cohort
+python fe1_baseline/baseline_features_nifti.py       --help   # SUH cohort
 python fe1_baseline/baseline_features_nifti_isles.py --help   # ISLES'24
 ```
 
@@ -42,7 +42,7 @@ Needs `pyradiomics` and `SimpleITK`.
 ## FE3 - mJ-Net embeddings
 
 A 2D+time CNN for core and penumbra segmentation from CTP. Trained on the full
-local cohort (n=149) with a 116/33 train/test split and 5-fold cross-validation
+SUH cohort (n=149) with a 116/33 train/test split and 5-fold cross-validation
 inside the training set; 100 epochs, AdamW, lr 1e-3, weight decay 1e-2, cosine
 annealing, Focal Tversky loss, early stopping patience 20, on A100 80 GB.
 

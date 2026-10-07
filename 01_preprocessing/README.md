@@ -7,7 +7,7 @@ Vendored from the project's standalone preprocessing repository,
 `yokko123/SUS2025_preprocessing_and_registration_final`, with the institutional
 paths replaced by environment variables. Go there for its history and issues.
 
-## Local cohort
+## SUH cohort
 
 ```bash
 python run_pipeline.py --help          # master CLI; each step also runs standalone
@@ -47,7 +47,7 @@ already co-registered to NCCT and provides no manual T1 annotation:
 * `assemble_isles24_4d.py` - stack the 40 CTP channels into a 4D volume
 * `detect_isles_lesion_side.py` - infer the lesion hemisphere
 * `generate_6_class_labels_isles.py` - the same six-class intersection, with
-  core and penumbra coming from the nnU-Net trained on the local cohort
+  core and penumbra coming from the nnU-Net trained on the SUH cohort
 * `generate_isles_6class_visualizations.py` - QC overlays
 
 ## Dependencies

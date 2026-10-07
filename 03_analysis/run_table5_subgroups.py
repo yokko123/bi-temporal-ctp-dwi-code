@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Table V - subgroup analysis of the mJ-Net separation index (local cohort).
+"""Table V - subgroup analysis of the mJ-Net separation index (SUH cohort).
 
     python run_table5_subgroups.py --config config.yaml
 

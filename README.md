@@ -6,10 +6,15 @@ Implementation for
 > Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi
 > University of Stavanger · Stavanger University Hospital
 
-**Project page:** https://github.com/yokko123/bi-temporal-ctp-dwi
+[![Project page](https://img.shields.io/badge/project%20page-yokko123.github.io-555555)](https://yokko123.github.io/bi-temporal-ctp-dwi/)
+[![DOI](https://zenodo.org/badge/1387177478.svg)](https://doi.org/10.5281/zenodo.23209370)
+[![License: MIT](https://img.shields.io/badge/license-MIT-555555)](LICENSE)
 
-**Accepted at IEEE BHI 2026.** Not yet on IEEE Xplore; the DOI will be added
-to `CITATION.cff` once it is.
+**Project page:** https://yokko123.github.io/bi-temporal-ctp-dwi/
+
+**Accepted at IEEE BHI 2026.** Not yet on IEEE Xplore; the paper DOI goes into
+`CITATION.cff` once it is. The code itself is archived on Zenodo:
+[10.5281/zenodo.23209370](https://doi.org/10.5281/zenodo.23209370).
 
 ## What it does
 
@@ -78,7 +83,8 @@ so a config keeps working from any working directory.
 
 Nothing in this repository is patient data.
 
-* The **local cohort** is retrospective hospital data and cannot be shared.
+* The **Stavanger University Hospital (SUH) cohort** is retrospective hospital
+  data and cannot be shared.
 * **ISLES'24** is public: https://isles-24.grand-challenge.org/
 
 Stages 01 and 02 read every root from an environment variable, each defaulting
@@ -87,12 +93,15 @@ else's filesystem.
 
 | Variable | Points at |
 |---|---|
-| `SUS_DICOM_ROOT` | raw local-cohort DICOM |
+| `SUS_DICOM_ROOT` | raw SUH DICOM |
 | `SUS_CTP_GT_ROOT` | expert core / penumbra annotations (T1) |
+
+The `SUS_` prefix and the `sus` cohort key are the hospital's Norwegian
+abbreviation (Stavanger Universitetssjukehus); they denote the SUH cohort.
 | `SUS_DWI_GT_ROOT` | expert final-infarct annotations (T2) |
 | `SUS_CTP_NATIVE_MASKS` | CTP brain masks in native space |
 | `SUS_CTP_PARAM_MAPS` | CTP-derived parametric maps (CBF, CBV, Tmax) |
-| `SUS_CURATED_ROOT` | curated local cohort, with `derivatives/` |
+| `SUS_CURATED_ROOT` | curated SUH cohort, with `derivatives/` |
 | `SUS_WORK_ROOT` | registration / intermediate outputs |
 | `SUS_SCRATCH_ROOT` | scratch space for preprocessing |
 | `SIX_CLASS_LABEL_DIR` | the 6-class label maps from stage 01 |
@@ -137,7 +146,8 @@ Every test is patient level: slice descriptors are max-pooled to
 
 ## Citing
 
-See [`CITATION.cff`](CITATION.cff), or:
+Cite the **paper** for the method and results, and the **Zenodo DOI** if you
+need to pin the exact code you ran. See [`CITATION.cff`](CITATION.cff), or:
 
 ```bibtex
 @inproceedings{rahman2026bitemporal,
@@ -148,7 +158,21 @@ See [`CITATION.cff`](CITATION.cff), or:
   year      = {2026},
   note      = {In press}
 }
+
+@software{rahman2026bitemporal_code,
+  title     = {Bi-temporal Image-driven Acute Stroke Evolution Analysis},
+  author    = {Rahman, Md Sazidur and Engan, Kjersti and
+               D{\ae}hli Kurz, Kathinka and Khanmohammadi, Mahdieh},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.23209370},
+  url       = {https://doi.org/10.5281/zenodo.23209370},
+  version   = {v1.0}
+}
 ```
+
+`10.5281/zenodo.23209370` is the concept DOI and always resolves to the newest
+release; `10.5281/zenodo.23209371` pins v1.0 specifically.
 
 ## License
 

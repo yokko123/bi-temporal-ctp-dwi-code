@@ -1,11 +1,13 @@
 # Paths to the feature tables written by stage 02 (02_features/).
 # Copy to config.yaml and fill in. Nothing here ships with the repository:
-# the local cohort is private hospital data and ISLES'24 must be obtained from
+# the Stavanger University Hospital (SUH) cohort is private hospital data and
+# ISLES'24 must be obtained from
 # https://isles-24.grand-challenge.org/ .
 
 out_dir: results
 
 features:
+  # The `sus` key is the SUH cohort (Stavanger Universitetssjukehus).
   # FE1 - baseline first-order statistics, patient level (already max-pooled).
   fe1:
     sus:    {path: /path/to/baseline/aggregations_csv/patient_max.csv,       level: patient}
@@ -29,7 +31,7 @@ features:
     sus:    {path: /path/to/nnunet/slice_features_109patients_ncct.csv, level: slice, suffix: "_max"}
     isles:  {path: /path/to/nnunet/slice_features_isles_ncct.csv,       level: slice, suffix: "_max"}
 
-# Table V strata (local cohort only).
+# Table V strata (SUH cohort only).
 subgroups:
   clinical_csv: /path/to/filtered_clinical_updated.csv   # needs patient_id, onset_to_ct_time
   lesion_json:  /path/to/lesion.json                     # "01_001": "Left" | "Right" | ""
