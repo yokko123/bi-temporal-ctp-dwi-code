@@ -1,0 +1,49 @@
+{
+  "title": "Bi-temporal Image-driven Acute Stroke Evolution Analysis",
+  "description": "<p><strong>Code for the IEEE BHI 2026 paper &ldquo;Bi-temporal Image-driven Acute Stroke Evolution Analysis&rdquo;.</strong></p>\n\n<p>Admission CT perfusion (CTP, T<sub>1</sub>) is registered to follow-up diffusion-weighted MRI (DWI, T<sub>2</sub>), and the two label sets are intersected into six outcome-aware region-of-interest classes. Each class pairs what the tissue looked like on admission with the fate it went on to have:</p>\n\n<ul>\n<li><strong>pen_brain</strong> &mdash; penumbra, salvaged</li>\n<li><strong>pen_fi</strong> &mdash; penumbra, progressed to infarct</li>\n<li><strong>core_brain</strong> &mdash; core, salvaged</li>\n<li><strong>core_fi</strong> &mdash; core, remained infarcted</li>\n<li><strong>clb_brain</strong> &mdash; contralateral healthy brain</li>\n<li><strong>nhb_fi</strong> &mdash; non-hypoperfused brain, later infarcted</li>\n</ul>\n\n<p>Admission tissue is then described with four feature families: first-order statistics (FE1), GLCM radiomics (FE2), mJ-Net embeddings (FE3) and nnU-Net embeddings (FE4). Four region-pair comparisons are run at patient level, using a cosine separation index &Delta;&#771;<sub>cos</sub> for the CNN families, and Mann&ndash;Whitney U with Benjamini&ndash;Hochberg FDR and Cliff&rsquo;s delta for the handcrafted ones.</p>\n\n<p><strong>Key findings.</strong> On the Stavanger University Hospital cohort (n = 109), salvaged and infarcted penumbra separate consistently (&Delta;&#771;<sub>cos</sub> = 0.146, p &lt; 0.05), core tissue barely separates by subsequent fate (&Delta;&#771;<sub>cos</sub> = 0.031), and the largest separation is between initially non-hypoperfused tissue that later infarcted and healthy contralateral brain (&Delta;&#771;<sub>cos</sub> = 0.460). The same pattern holds on ISLES&rsquo;24 (n = 149), supporting consistency across cohorts.</p>\n\n<p><strong>Contents.</strong> Preprocessing and registration through to the six ROI classes; the four feature extractors; and the analysis that reproduces the paper&rsquo;s result tables. A synthetic cohort is included so the analysis stage runs end to end without patient data. Neither cohort is distributed here: the hospital cohort is not public, and ISLES&rsquo;24 must be obtained from its organisers.</p>\n\n<p><strong>Related.</strong><br>\nProject page: <a href=\"https://yokko123.github.io/bi-temporal-ctp-dwi/\">yokko123.github.io/bi-temporal-ctp-dwi</a><br>\nModel weights: <a href=\"https://huggingface.co/yokko123/ctp-core-penumbra-nnunet\">huggingface.co/yokko123/ctp-core-penumbra-nnunet</a></p>",
+  "upload_type": "software",
+  "license": "mit",
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Rahman, Md Sazidur",
+      "affiliation": "University of Stavanger"
+    },
+    {
+      "name": "Engan, Kjersti",
+      "affiliation": "University of Stavanger"
+    },
+    {
+      "name": "Kurz, Kathinka Dæhli",
+      "affiliation": "Stavanger University Hospital"
+    },
+    {
+      "name": "Khanmohammadi, Mahdieh",
+      "affiliation": "University of Stavanger"
+    }
+  ],
+  "keywords": [
+    "perfusion imaging",
+    "CT perfusion",
+    "diffusion MRI",
+    "radiomics",
+    "CNN embeddings",
+    "ischemic stroke",
+    "stroke imaging",
+    "image segmentation",
+    "nnU-Net"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementedBy",
+      "identifier": "https://huggingface.co/yokko123/ctp-core-penumbra-nnunet",
+      "scheme": "url"
+    },
+    {
+      "relation": "isDocumentedBy",
+      "identifier": "https://yokko123.github.io/bi-temporal-ctp-dwi/",
+      "scheme": "url"
+    }
+  ],
+  "language": "eng"
+}

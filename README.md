@@ -46,6 +46,7 @@ tests/              unit tests for the statistics
 
 models.yaml         published weights, pinned by Hugging Face commit sha
 download_weights.py fetches and verifies them
+.zenodo.json        metadata for the Zenodo release
 ```
 
 ## Pretrained weights
