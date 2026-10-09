@@ -48,5 +48,10 @@ preferred-citation:
     2026 IEEE-EMBS International Conference on Biomedical and Health
     Informatics (BHI)
   year: 2026
+  identifiers:
+    - type: other
+      value: "arXiv:2602.07535"
+      description: arXiv preprint
+  url: https://arxiv.org/abs/2602.07535
   # Add doi: and start/end page numbers once the paper is on IEEE Xplore.
   notes: In press

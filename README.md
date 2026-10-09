@@ -1,6 +1,7 @@
 <h1 align="center">Bi-temporal Image-driven<br>Acute Stroke Evolution Analysis</h1>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2602.07535"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2602.07535-B31B1B?logo=arxiv&logoColor=white"></a>
   <a href="https://yokko123.github.io/bi-temporal-ctp-dwi/"><img alt="Project page" src="https://img.shields.io/badge/project%20page-live-0c6e7b"></a>
   <a href="https://huggingface.co/yokko123/ctp-core-penumbra-nnunet"><img alt="Model on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-nnU--Net-FFD21E"></a>
   <a href="https://doi.org/10.5281/zenodo.23209370"><img alt="DOI" src="https://zenodo.org/badge/1387177478.svg"></a>
@@ -191,8 +192,9 @@ Every test is patient level: slice descriptors are max-pooled to
 
 ## Citing
 
-The paper is accepted at IEEE BHI 2026 but not yet on IEEE Xplore; its DOI goes
-into [`CITATION.cff`](CITATION.cff) once it is. Cite the **paper** for the
+The paper is accepted at IEEE BHI 2026 and the preprint is on
+[arXiv:2602.07535](https://arxiv.org/abs/2602.07535); the IEEE DOI goes into
+[`CITATION.cff`](CITATION.cff) once it appears on Xplore. Cite the **paper** for the
 method and results, and the **Zenodo DOI** if you need to pin the exact code you
 ran:
 
@@ -201,9 +203,12 @@ ran:
   title     = {Bi-temporal Image-driven Acute Stroke Evolution Analysis},
   author    = {Rahman, Md Sazidur and Engan, Kjersti and
                Kurz, Kathinka D{\ae}hli and Khanmohammadi, Mahdieh},
-  booktitle = {2026 IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI)},
-  year      = {2026},
-  note      = {In press}
+  booktitle    = {2026 IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI)},
+  year         = {2026},
+  eprint       = {2602.07535},
+  archivePrefix= {arXiv},
+  primaryClass = {eess.IV},
+  note         = {In press}
 }
 
 @software{rahman2026bitemporal_code,
