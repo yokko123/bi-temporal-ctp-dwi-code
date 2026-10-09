@@ -207,7 +207,7 @@ ran:
   year         = {2026},
   eprint       = {2602.07535},
   archivePrefix= {arXiv},
-  primaryClass = {eess.IV},
+  primaryClass = {cs.CV},
   note         = {In press}
 }
 
