@@ -219,14 +219,14 @@ ran:
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.23209370},
   url       = {https://doi.org/10.5281/zenodo.23209370},
-  version   = {v1.0.1}
+  version   = {v1.2}
 }
 ```
 
 `10.5281/zenodo.23209370` is the concept DOI and always resolves to the newest
 release, which is what the badge and the entry above point at. To pin an exact
-release instead, use its own DOI: `10.5281/zenodo.23214060` for v1.0.1,
-`10.5281/zenodo.23209371` for v1.0.0.
+release instead, use its own DOI: `10.5281/zenodo.23248534` for v1.2,
+`10.5281/zenodo.23214060` for v1.1, `10.5281/zenodo.23209371` for v1.0.
 
 ## License
 
