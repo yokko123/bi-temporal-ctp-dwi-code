@@ -48,6 +48,7 @@ tests/              unit tests for the statistics
 
 models.yaml         published weights, pinned by Hugging Face commit sha
 download_weights.py fetches and verifies them
+                    (02_features/*/predict.py run inference with them)
 .zenodo.json        metadata for the Zenodo release
 ```
 
@@ -79,7 +80,20 @@ Point `NNUNET_DATASET_ROOT` at the same tree to run
 `02_features/fe4_nnunet/extract_3D_ensemble_features.py` for the 256-D encoder
 features instead of the segmentation.
 
-The mJ-Net weights (FE3) are not published yet.
+The mJ-Net segmenter (FE3) is on the Hub too:
+
+[**yokko123/ctp-core-penumbra-mjnet**](https://huggingface.co/yokko123/ctp-core-penumbra-mjnet) — 2D+time CNN, 0.98 M parameters, 19.5 MB. Released as a *feature extractor*: its 256-D bottleneck gave the paper's strongest penumbra separation, but it segments poorly (Dice 0.30 penumbra / 0.05 core), so use the nnU-Net above for segmentation.
+
+Both releases ship a standalone predictor that downloads its own weights:
+
+```bash
+python 02_features/fe4_nnunet/predict.py       -i INPUT_FOLDER -o OUTPUT_FOLDER
+python 02_features/fe3_mjnet/predict_released.py --input CASE_ctp.nii.gz --output CASE_seg.nii.gz
+```
+
+For the FE3 feature read-out rather than a segmentation, use
+`02_features/fe3_mjnet/extract_features.py`, which pools the encoder bottleneck
+over 16x16 patches inside each labelled region.
 
 ## Install
 
