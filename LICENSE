@@ -25,9 +25,13 @@ SOFTWARE.
 
 Third-party components, under their own licences:
 
-* `02_features/fe3_mjnet/` is a PyTorch reimplementation derived from mJ-Net
-  (Tomasetti et al., Biomedical Data Analysis Laboratory, University of
-  Stavanger), https://github.com/Biomedical-Data-Analysis-Laboratory/mJ-Net
+* `02_features/fe3_mjnet/` is a PyTorch reimplementation derived from mJ-Net,
+  introduced by Tomasetti, Engan, Khanmohammadi and Kurz (Biomedical Data
+  Analysis Laboratory, University of Stavanger) in "CNN Based Segmentation of
+  Infarcted Regions in Acute Cerebral Stroke Patients From Computed Tomography
+  Perfusion Imaging", ACM-BCB '20, pp. 1-8, doi:10.1145/3388440.3412470.
+  The group's later 4D variant is at
+  https://github.com/Biomedical-Data-Analysis-Laboratory/4D-mJ-Net
 * `02_features/fe4_nnunet/` builds on nnU-Net v2 (Isensee et al.),
   https://github.com/MIC-DKFZ/nnUNet - Apache-2.0
 * `01_preprocessing/` uses SynthStrip and SynthSeg (FreeSurfer) as external

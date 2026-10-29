@@ -33,7 +33,7 @@ models:
 
   fe3_mjnet:
     repo_id: yokko123/ctp-core-penumbra-mjnet
-    revision: e667d21fa163dcf030a0d17c840d5e89ee797b93
+    revision: 6271cd82bbf8d7fc65a518b4d08db9927cb218db
     repo_type: model
     description: >-
       mJ-Net 2D+time CNN, 5-fold ensemble, core/penumbra segmentation from
@@ -43,8 +43,8 @@ models:
     dest_default: ./weights/mjnet
     expect_files:
       config.json: 1042
-      README.md: 7541
-      arch_mJNet.py: 17236
+      README.md: 9606
+      arch_mJNet.py: 17622
       predict.py: 9983
       folds/fold_0.pt: 3935366
       folds/fold_1.pt: 3935366

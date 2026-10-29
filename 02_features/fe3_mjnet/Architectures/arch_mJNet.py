@@ -1,6 +1,12 @@
 """
 PyTorch implementation of mJNet — exact 1-to-1 match of the TensorFlow reference.
 
+The architecture is due to Tomasetti, Engan, Khanmohammadi and Kurz, "CNN Based
+Segmentation of Infarcted Regions in Acute Cerebral Stroke Patients From
+Computed Tomography Perfusion Imaging", ACM-BCB '20, pp. 1-8,
+doi:10.1145/3388440.3412470 (arXiv:2104.03002). Cite that paper if you use this.
+Their later 4D variant: https://github.com/Biomedical-Data-Analysis-Laboratory/4D-mJ-Net
+
 Axis convention
 ~~~~~~~~~~~~~~~
 TensorFlow layout : (batch, H, W, T, C)   — "channels last"
