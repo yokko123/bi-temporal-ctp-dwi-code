@@ -6,6 +6,8 @@
   <a href="https://huggingface.co/yokko123/ctp-core-penumbra-nnunet"><img alt="Model on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-nnU--Net-FFD21E"></a>
   <a href="https://huggingface.co/yokko123/ctp-core-penumbra-mjnet"><img alt="mJ-Net weights on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-mJ--Net-FFD21E"></a>
   <a href="https://huggingface.co/spaces/yokko123/ctp-core-penumbra-demo"><img alt="Live demo" src="https://img.shields.io/badge/%F0%9F%A4%97%20demo-live-FFD21E"></a>
+  <a href="https://x.com/Sazidur79346125/status/2108635987580436798"><img alt="X thread" src="https://img.shields.io/badge/X-thread-000000?logo=x&logoColor=white"></a>
+  <a href="https://bsky.app/profile/sazidur.bsky.social/post/3mz2a4smsdu2p"><img alt="Bluesky thread" src="https://img.shields.io/badge/Bluesky-thread-0285FF?logo=bluesky&logoColor=white"></a>
   <a href="https://doi.org/10.5281/zenodo.23209370"><img alt="DOI" src="https://zenodo.org/badge/1387177478.svg"></a>
   <a href="https://github.com/yokko123/bi-temporal-ctp-dwi-code/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/yokko123/bi-temporal-ctp-dwi-code?color=0c6e7b&label=release"></a>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-555555"></a>
