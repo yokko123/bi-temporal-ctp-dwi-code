@@ -4,6 +4,7 @@
   <a href="https://arxiv.org/abs/2602.07535"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2602.07535-B31B1B?logo=arxiv&logoColor=white"></a>
   <a href="https://yokko123.github.io/bi-temporal-ctp-dwi/"><img alt="Project page" src="https://img.shields.io/badge/project%20page-live-0c6e7b"></a>
   <a href="https://huggingface.co/yokko123/ctp-core-penumbra-nnunet"><img alt="Model on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-nnU--Net-FFD21E"></a>
+  <a href="https://huggingface.co/yokko123/ctp-core-penumbra-mjnet"><img alt="mJ-Net weights on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-mJ--Net-FFD21E"></a>
   <a href="https://huggingface.co/spaces/yokko123/ctp-core-penumbra-demo"><img alt="Live demo" src="https://img.shields.io/badge/%F0%9F%A4%97%20demo-live-FFD21E"></a>
   <a href="https://doi.org/10.5281/zenodo.23209370"><img alt="DOI" src="https://zenodo.org/badge/1387177478.svg"></a>
   <a href="https://github.com/yokko123/bi-temporal-ctp-dwi-code/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/yokko123/bi-temporal-ctp-dwi-code?color=0c6e7b&label=release"></a>
