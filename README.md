@@ -100,10 +100,11 @@ over 16x16 patches inside each labelled region.
 ## Try it without installing anything
 
 [**Live demo**](https://huggingface.co/spaces/yokko123/ctp-core-penumbra-demo) —
-a ZeroGPU Space that runs the whole pipeline on one bundled ISLES'24 case:
-admission CTP through the nnU-Net, then intersected with the follow-up infarct
-to give the six classes. It also accepts an uploaded 40-channel study. The
-five-fold ensemble takes about 15 s of GPU time.
+a ZeroGPU Space showing how the six ROI classes are built on one bundled
+ISLES'24 case: admission CTP through the nnU-Net (FE4), then intersected with
+the follow-up infarct. That is stage 01's labelling step only — the feature
+families and the region-pair tests, stages 02 and 03, are not part of the demo.
+The five-fold ensemble takes about 15 s of GPU time.
 
 ## Install
 
